@@ -10,9 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 
 
-
-
-
 @NgModule({
   declarations: [
     LoginComponent
