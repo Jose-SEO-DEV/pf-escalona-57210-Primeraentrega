@@ -21,6 +21,8 @@ export interface PeriodicElement {
   styleUrl: './students.component.scss'
 })
 export class StudentsComponent {
+
+  Size20 = true;
  
   nuevoAlumno = '';
 

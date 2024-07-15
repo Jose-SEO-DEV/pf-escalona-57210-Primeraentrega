@@ -1,4 +1,4 @@
-<h1 mat-dialog-title >Lista de alumnos en el nuevo curso:</h1>
+<h1 [style.font-size]="Size20 ? '20px' : '50'"  mat-dialog-title >Lista de alumnos en el nuevo curso:</h1>
 <button (click)="openDialog()" mat-flat-button><mat-icon> add</mat-icon>Agregar alumnos </button>
 
 <p >el nuevo alumno inscrito para el curso es : {{ nuevoAlumno }}</p>
