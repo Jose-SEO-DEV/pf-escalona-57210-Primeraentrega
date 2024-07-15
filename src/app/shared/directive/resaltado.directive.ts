@@ -9,7 +9,7 @@ export class ResaltadoDirective implements OnChanges {
 
   constructor(private elementRef: ElementRef ) { 
     this.updateBgColor();
-
+  
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.updateBgColor();

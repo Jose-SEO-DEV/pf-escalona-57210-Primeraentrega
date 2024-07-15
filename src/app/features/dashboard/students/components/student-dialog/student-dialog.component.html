@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{ editStudent ? "Editando al alumno " + editStudent.name + (' ') + editStudent.lastname : "Agregar alumnos" }}</h2>
+<mat-dialog-content >
+    Estás a punto de inscribirte en el curso seleccionado.
+    <form [formGroup]="studentForm">
+    <mat-form-field class="w-full" >
+        <mat-label>Nombre</mat-label>
+        <input formControlName="name" matInput />
+        <mat-error>El nombre es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" >
+      <mat-label>Apellido</mat-label>
+      <input formControlName="lastname" matInput />
+      <mat-error>El Apellido es obligatorio</mat-error>
+  </mat-form-field>
+
+    <!--Date Picker rango-->
+    <mat-form-field class="w-full">
+        <mat-label>Fecha inicio - Fecha fin</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate formControlName="startDate" placeholder="Fecha inicio">
+          <input matEndDate formControlName="endDate" placeholder="Fecha fin">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      
+       <!-- @if (range.controls.start.hasError('matStartDateInvalid')) {
+          <mat-error>Invalid start date</mat-error>
+        }
+        @if (range.controls.end.hasError('matEndDateInvalid')) {
+          <mat-error>Invalid end date</mat-error>
+        } -->
+      </mat-form-field>
+     </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-dialog-close mat-button>Cancelar</button>
+    <button (click)="onSubmit()" mat-button>Guardar</button>
+</mat-dialog-actions>

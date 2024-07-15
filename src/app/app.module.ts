@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { AuthModule } from './features/auth/auth.module';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AuthModule } from './features/auth/auth.module';
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(), provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })
