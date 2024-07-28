@@ -3,32 +3,32 @@
     <mat-card-header><h1>Iniciar sesión</h1></mat-card-header>
 
     <mat-card-content > 
-        <form >
+        <form [formGroup]="loginForm" >
         <mat-form-field class="w-full mb-5">
             <mat-label>Email</mat-label>
-            <input matInput />
+            <input formControlName="email" matInput />
             <mat-hint>Ingresar un mail válido</mat-hint>
             <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="w-full mb-5">
             <mat-label>Contraseña</mat-label>
-            <input matInput />
+            <input formControlName="password" matInput />
             <mat-hint>Ingresar su contraseña</mat-hint>
             <mat-icon matSuffix>key</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="w-full mb-5">
             <mat-label>Rol</mat-label>
-            <mat-select>
+            <mat-select formControlName="role">
                 <mat-option value="Admin">Admin</mat-option>
                 <mat-option value="User">User</mat-option>
             </mat-select>
 
-            <p>adasasasasas</p>
-            <p>asasasasa</p>
+        
 
         </mat-form-field>
+        <button routerLink="/dashboard" class="w-full mt-5" mat-flat-button> Iniciar sesión</button>
         </form>
     </mat-card-content>
 </mat-card>

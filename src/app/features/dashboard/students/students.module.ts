@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { MatTableModule } from '@angular/material/table';
   exports: [StudentsComponent],
   imports: [
     CommonModule,
-    StudentsRoutingModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatDatepickerModule, MatTableModule
+    StudentsRoutingModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatDatepickerModule, MatTableModule, MatProgressSpinnerModule,
   ],
 })
 export class StudentsModule { }

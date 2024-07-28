@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDialogComponent } from './components/student-dialog/student-dialog.component';
 import { Student } from './models';
 import { generateId } from '../../../shared/utils';
+import { StudentsService } from '../../../core/services/students.service';
 
 export interface PeriodicElement {
   name: string;
@@ -20,60 +21,34 @@ export interface PeriodicElement {
   templateUrl: './students.component.html',
   styleUrl: './students.component.scss'
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit {
 
   Size20 = true;
  
   nuevoAlumno = '';
 
   displayedColumns: string[] = ['id', 'name', 'lastname', 'startDate', 'endDate', 'actions'];
-  dataSource: Student[] = [
-    {
-      id: '1234',
-      name: 'Juan',
-      lastname: 'Perez',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    {
-      id: '9876',
-      name: 'José',
-      lastname: 'Hidalgo',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    {
-      id: '4312',
-      name: 'Silvia',
-      lastname: 'Martinez',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    {
-      id: '4892',
-      name: 'Lautaro',
-      lastname: 'Godoy',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    {
-      id: '6578',
-      name: 'Luciano',
-      lastname: 'Reyes',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    {
-      id: '8313',
-      name: 'Vinicius',
-      lastname: 'Da Silva',
-      startDate: new Date (),
-      endDate: new Date(),
-    },
-    
-  ];
+  dataSource: Student[] = [];
 
-  constructor (private matDialog: MatDialog) {}
+  isLoading = false; 
+
+  constructor (
+    private matDialog: MatDialog, private studentsService: StudentsService) {}
+    ngOnInit(): void {
+      this.loadStudents();
+    }
+
+  loadStudents() { 
+    this.isLoading = true;
+    this.studentsService.getStudents().subscribe({
+      next: (students) => {
+        this.dataSource = students;
+      },
+      complete: () => { 
+        this.isLoading = false;
+      }
+    });
+  }
 
   openDialog() : void { 
     this.matDialog.open(StudentDialogComponent).afterClosed() .subscribe({

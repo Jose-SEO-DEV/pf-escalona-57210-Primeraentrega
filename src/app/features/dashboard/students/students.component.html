@@ -1,5 +1,9 @@
 <h1 [style.font-size]="Size20 ? '20px' : '50'"  mat-dialog-title >Lista de alumnos en el nuevo curso:</h1>
-<button (click)="openDialog()" mat-flat-button><mat-icon> add</mat-icon>Agregar alumnos </button>
+
+@if (isLoading) {
+  <mat-spinner></mat-spinner>
+} @else {
+  <button (click)="openDialog()" mat-flat-button><mat-icon> add</mat-icon>Agregar alumnos </button>
 
 <p >el nuevo alumno inscrito para el curso es : {{ nuevoAlumno }}</p>
 
@@ -56,4 +60,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+}
+
+
+
+
   
