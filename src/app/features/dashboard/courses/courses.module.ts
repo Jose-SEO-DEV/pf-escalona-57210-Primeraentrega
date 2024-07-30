@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 
 
 
@@ -18,7 +19,8 @@ import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     CoursesComponent,
-    CourseDialogComponent
+    CourseDialogComponent,
+    CourseDetailComponent
   ],
   exports: [CoursesComponent],
   imports: [

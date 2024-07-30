@@ -5,6 +5,8 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { StudentsComponent } from './features/dashboard/students/students.component';
 import { CoursesComponent } from './features/dashboard/courses/courses.component';
 import { EnrollmentsComponent } from './features/dashboard/enrollments/enrollments.component';
+import { CourseDetailComponent } from './features/dashboard/courses/pages/course-detail/course-detail.component';
+import { HomeComponent } from './features/dashboard/home/home.component';
 
 const routes: Routes = [
 {
@@ -16,6 +18,11 @@ const routes: Routes = [
   component: DashboardComponent,
   children: [
     {
+      path: 'home',
+      component: HomeComponent,
+
+    },
+    {
       path: 'students',
       component: StudentsComponent,
     },
@@ -24,9 +31,17 @@ const routes: Routes = [
       component: CoursesComponent,
     },
     {
+      path: 'courses/:id',
+      component: CourseDetailComponent,
+
+    },
+    {
       path: 'enrollments',
       component: EnrollmentsComponent,
-
+    },
+    {
+      path: '**',
+      redirectTo: '/dashboard/home'
     }
     
   ],
