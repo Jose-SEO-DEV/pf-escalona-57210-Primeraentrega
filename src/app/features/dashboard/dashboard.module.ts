@@ -12,6 +12,7 @@ import { CoursesModule } from './courses/courses.module';
 import {MatListModule} from '@angular/material/list';
 import { ClasePipesModule } from './clase-pipes/clase-pipes.module';
 import { StudentsModule } from './students/students.module';
+import { EnrollmentsModule } from './enrollments/enrollments.module';
 
 
 
@@ -26,7 +27,7 @@ import { StudentsModule } from './students/students.module';
   exports: [DashboardComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, CoursesModule, MatListModule, ClasePipesModule, StudentsModule, 
+    DashboardRoutingModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, CoursesModule, MatListModule, ClasePipesModule, StudentsModule,EnrollmentsModule,
   ]
 })
 export class DashboardModule { }
