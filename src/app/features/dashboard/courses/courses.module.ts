@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -33,6 +34,7 @@ import { CourseDetailComponent } from './pages/course-detail/course-detail.compo
     MatInputModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class CoursesModule { }

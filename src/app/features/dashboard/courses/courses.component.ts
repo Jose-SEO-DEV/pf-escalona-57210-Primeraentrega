@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CourseDialogComponent } from './components/course-dialog/course-dialog.component';
 import { course } from './models';
 import { generateId } from '../../../shared/utils';
+import { CoursesService } from '../../../core/services/courses.service';
 
 
 @Component({
@@ -10,33 +11,32 @@ import { generateId } from '../../../shared/utils';
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnInit {
+  Size20 = true
+
   nombreCurso= '';
   
   displayedColumns: string[] = ['id', 'name', 'startDate', 'endDate', 'actions'];
-  dataSource:  course [] = [
-    {
-      id: '1990',
-      name: 'Angular',
-      endDate: new Date(),
-      startDate: new Date(),
-    },
-    {
-      id: '1991',
-      name: 'Java',
-      endDate: new Date(),
-      startDate: new Date(),
-    },
-    {
-      id: '1992',
-      name: 'Css',
-      endDate: new Date(),
-      startDate: new Date(),
-    },
-    
-  ];
+  dataSource:  course [] = [];
 
-  constructor(private matDialog: MatDialog) {}
+  isLoading = false;
+
+  constructor(private matDialog: MatDialog, private courseService: CoursesService) {}
+  ngOnInit(): void {
+    this.loadCourses()
+  }
+
+  loadCourses() {
+    this.isLoading = true;
+    this.courseService.getCourses().subscribe({
+      next: (courses) => {
+        this.dataSource = courses;
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
+  }
 
   openDialog(): void {
     this.matDialog.open(CourseDialogComponent).afterClosed().subscribe({
@@ -45,9 +45,15 @@ export class CoursesComponent {
         this.nombreCurso = value.name; 
 
         value['id'] = generateId(4);
-
-        this.dataSource = [...this.dataSource, value ];
-
+        this.isLoading = true;
+        this.courseService.addCourse(value).subscribe({
+          next: (courses) => {
+            this.dataSource = [...courses];
+          },
+          complete: () => {
+            this.isLoading = false;
+          }
+        });
       },
     });
   }
@@ -56,15 +62,30 @@ export class CoursesComponent {
     this.matDialog.open(CourseDialogComponent, { data: editingCourse}).afterClosed().subscribe({ next: (value) => {
 
       if (!!value) {
-        this.dataSource = this.dataSource.map((el) => el.id === editingCourse.id ? {...value, id: editingCourse.id } : el )
-      }
 
-    }
+        this.courseService.editCourseById(editingCourse.id, value).subscribe({
+          next: (courses) => {
+            this.dataSource = [...courses];
+          },
+        });
+      }
+    },
    });
   }
 
-  deleteCourseById(id: string) {
 
-    this.dataSource= this.dataSource.filter((el) => el.id != id) 
+  deleteCourseById(id: string) {
+    if (confirm('Estas seguro?')) {
+      this.isLoading = true;
+
+      this.courseService.deleteCourseById(id).subscribe({
+        next: (courses) => {
+          this.dataSource = [...courses];
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
+    };
    }
 }

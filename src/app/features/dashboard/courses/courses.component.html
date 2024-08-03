@@ -1,4 +1,11 @@
-<button mat-flat-button (click)="openDialog ()"><mat-icon>add</mat-icon> Crear Curso</button>
+<h1 [style.font-size]="Size20 ? '20px' : '50'"  mat-dialog-title>Lista de Cursos </h1>
+
+@if (isLoading) {
+  <mat-spinner></mat-spinner>
+} @else {
+  <button mat-flat-button (click)="openDialog ()"><mat-icon>add</mat-icon> Crear Curso</button>
+
+  <p >el nuevo curso abierto es : {{ nombreCurso }}</p>
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -50,3 +57,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+}
+
+
+
+
