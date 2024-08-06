@@ -4,9 +4,9 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { StudentsComponent } from './features/dashboard/students/students.component';
 import { CoursesComponent } from './features/dashboard/courses/courses.component';
-import { EnrollmentsComponent } from './features/dashboard/enrollments/enrollments.component';
 import { CourseDetailComponent } from './features/dashboard/courses/pages/course-detail/course-detail.component';
 import { HomeComponent } from './features/dashboard/home/home.component';
+import { InscripcionesComponent } from './features/dashboard/inscripciones/inscripciones.component';
 
 const routes: Routes = [
 {
@@ -23,6 +23,10 @@ const routes: Routes = [
 
     },
     {
+      path: 'inscripciones',
+      component: InscripcionesComponent,
+    },
+    {
       path: 'students',
       component: StudentsComponent,
     },
@@ -34,10 +38,6 @@ const routes: Routes = [
       path: 'courses/:id',
       component: CourseDetailComponent,
 
-    },
-    {
-      path: 'enrollments',
-      component: EnrollmentsComponent,
     },
     {
       path: '**',

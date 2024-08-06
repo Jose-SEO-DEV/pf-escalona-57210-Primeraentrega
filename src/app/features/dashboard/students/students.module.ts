@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 
@@ -24,7 +25,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   exports: [StudentsComponent],
   imports: [
     CommonModule,
-    StudentsRoutingModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatDatepickerModule, MatTableModule, MatProgressSpinnerModule,
+    StudentsRoutingModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatDatepickerModule, MatTableModule, MatProgressSpinnerModule, SharedModule,
   ],
 })
 export class StudentsModule { }

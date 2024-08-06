@@ -5,16 +5,6 @@ import { Student } from './models';
 import { generateId } from '../../../shared/utils';
 import { StudentsService } from '../../../core/services/students.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-
-
-
 
 @Component({
   selector: 'app-students',

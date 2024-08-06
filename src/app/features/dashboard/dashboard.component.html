@@ -5,7 +5,7 @@
         <a mat-list-item routerLink="home" routerLinkActive #homeLink="routerLinkActive" [activated]="homeLink.isActive">Inicio</a>
         <a mat-list-item routerLink="courses" routerLinkActive #cursosLink="routerLinkActive" [activated]="cursosLink.isActive">Cursos</a>
         <a mat-list-item routerLink="students" routerLinkActive #estudiantesLink="routerLinkActive" [activated]="estudiantesLink.isActive" >Alumnos</a>
-        <a mat-list-item routerLink="enrollments" routerLinkActive #inscripcionesLink="routerLinkActive" [activated]="inscripcionesLink.isActive">Inscripciones</a>
+        <a mat-list-item routerLink="inscripciones" routerLinkActive #inscripcionesLink="routerLinkActive" [activated]="inscripcionesLink.isActive" >Inscripciones</a>
         <a mat-list-item routerLink="/auth" [activated]="true">Cerrar sesión</a>
       </mat-nav-list>
     </mat-drawer>
@@ -13,9 +13,8 @@
 
   <!--Inicia el main content-->
     <div class="example-sidenav-content">
-
         <!--Inicia toolbar-->
-        <mat-toolbar >
+        <mat-toolbar class="custom-toolbar"  >
             <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
               <mat-icon>menu</mat-icon>
             </button>
@@ -26,9 +25,6 @@
           <!--Finaliza toolbar -->
           <main class="p-5">
             <router-outlet/>
-            <!--<app-students></app-students> 
-          <!--<app-courses></app-courses> 
-          <!--<app-clase-pipes/> --> <!--Componente de pipes no estará en el proyecto final-->
           </main>
     </div>
     <!--Finaliza el main content-->

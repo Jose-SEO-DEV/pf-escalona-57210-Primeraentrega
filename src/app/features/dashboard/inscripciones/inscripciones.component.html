@@ -1,0 +1,75 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="inscripcionesForm">
+    <div class="grid w-6">
+    <div class="col-6">
+    <mat-form-field class="w-full">
+        <mat-label> Nombre</mat-label>
+        <input formcontrolName="Nombre" matInput/>
+    </mat-form-field>
+   </div>
+    <div class="col-6">
+    <mat-form-field class="w-full">
+        <mat-label> Curso</mat-label>
+        <input FormcontrolName="Curso" matInput/>
+    </mat-form-field>
+   </div>  
+</div>
+<button type="submit" mat-flat-button> Agregar</button>
+</form>
+<br>
+
+
+
+<!--@if (loading) {
+    <mat-spinner></mat-spinner>
+} @else 
+
+
+
+{
+
+       <pre>{{ inscripciones | json}}</pre>-->
+
+    <table mat-table [dataSource]="inscripciones" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>nombre</th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="curso">
+          <th mat-header-cell *matHeaderCellDef> Curso </th>
+          <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">  
+          <button (click)="onDelete(element.id)" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button (click)="onEdit(element)" mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      
+      
+
+
