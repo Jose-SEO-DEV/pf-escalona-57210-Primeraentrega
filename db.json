@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+    "id": "we342",
+    "firstName":"Pedro",
+    "lastName": "Perez",
+    "email": "pedro@mail.com",
+    "password": "123456",
+    "token": "eltokendeacceso",
+    "role": "ADMIN"
+
+    },
+    {
+      "id": "we343",
+      "firstName":"Juan",
+      "lastName": "Garcia",
+      "email": "juan@mail.com",
+      "password": "123456",
+      "token": "eltokendeacceso1",
+      "role":"EMPLOYEE"
+      }
+
+  ], 
+  
+  "courses": [
+        {
+            "id": "1990",
+            "name": "Angular",
+            "endDate": "new Date()",
+            "startDate": "new Date()"
+          },
+          {
+            "id": "1991",
+            "name": "Java",
+            "endDate": "new Date()",
+            "startDate": "new Date()"
+          },
+          {
+            "id": "1992",
+            "name": "Css",
+            "endDate": "new Date()",
+            "startDate": "new Date()"
+          }
+    ],
+    "students": [
+      {
+        "id": "1234",
+        "name": "Juan",
+        "lastname": "Perez",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      },
+      {
+        "id": "9876",
+        "name": "José",
+        "lastname": "Hidalgo",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      },
+      {
+        "id": "4312",
+        "name": "Silvia",
+        "lastname": "Martinez",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      },
+      {
+        "id": "4892",
+        "name": "Lautaro",
+        "lastname": "Godoy",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      },
+      {
+        "id": "6578",
+        "name": "Luciano",
+        "lastname": "Reyes",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      },
+      {
+        "id": "8313",
+        "name": "Vinicius",
+        "lastname": "Da Silva",
+        "startDate": "new Date()",
+        "endDate": "new Date()"
+      }
+
+
+
+
+    ],
+    "inscripciones": [
+      {
+        "id": "a12024",
+        "nombre": "jose",
+        "curso": 77777
+    },
+    {
+        "id": "a120252",
+        "nombre": "pedro",
+        "curso": 99999
+          },
+    {
+        "id": "a12026",
+        "nombre": "juan",
+        "curso": 88888
+    }
+    ]
+
+}

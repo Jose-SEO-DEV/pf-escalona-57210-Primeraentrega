@@ -4,7 +4,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { ResaltadoDirective } from './directive/resaltado.directive';
 import { RepetirDirective } from './directive/repetir.directive';
 import { FullNamePipe } from './pipes/full-name.pipe';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';

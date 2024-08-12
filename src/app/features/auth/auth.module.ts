@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Version } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
+import { APP_CONFIG } from '../../core/injection-tokens';
 
 
 @NgModule({
@@ -27,7 +29,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-
-  ]
+  ],
+  providers: [
+    {
+      provide: APP_CONFIG, 
+      useValue: {
+        baseURL: '...',
+        version: '2.0'
+      },
+    },
+  ],
 })
 export class AuthModule { }

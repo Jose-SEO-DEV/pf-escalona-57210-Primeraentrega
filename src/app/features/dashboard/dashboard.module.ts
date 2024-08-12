@@ -7,12 +7,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { CoursesModule } from './courses/courses.module';
 import {MatListModule} from '@angular/material/list';
-import { ClasePipesModule } from './clase-pipes/clase-pipes.module';
-import { StudentsModule } from './students/students.module';
 import { SharedModule } from '../../shared/shared.module';
-import { InscripcionesModule } from './inscripciones/inscripciones.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -29,7 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   exports: [DashboardComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, CoursesModule, MatListModule, ClasePipesModule, StudentsModule, SharedModule,InscripcionesModule, MatInputModule, MatFormFieldModule,
+    DashboardRoutingModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, MatListModule, SharedModule, MatInputModule, MatFormFieldModule,
   ]
 })
 export class DashboardModule { }

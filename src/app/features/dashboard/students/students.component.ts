@@ -28,17 +28,21 @@ export class StudentsComponent implements OnInit {
       this.loadStudents();
     }
 
-  loadStudents() { 
-    this.isLoading = true;
-    this.studentsService.getStudents().subscribe({
-      next: (students) => {
-        this.dataSource = students;
-      },
-      complete: () => { 
-        this.isLoading = false;
-      }
-    });
-  }
+    loadStudents() { 
+      this.isLoading = true;
+      this.studentsService.getStudents().subscribe({
+        next: (students) => {
+          this.dataSource = students;
+        },
+        error: (err) => {
+          console.error('Error loading students:', err);
+          this.isLoading = false;
+        },
+        complete: () => { 
+          this.isLoading = false;
+        }
+      });
+    }
 
   openDialog() : void { 
     this.matDialog.open(StudentDialogComponent).afterClosed() .subscribe({
