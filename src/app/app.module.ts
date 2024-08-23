@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { AuthModule } from './features/auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './core/store';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AuthModule } from './features/auth/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot(rootReducer, {}),
   ],
   providers: [
     provideAnimationsAsync(), provideNativeDateAdapter(), provideHttpClient(withFetch())

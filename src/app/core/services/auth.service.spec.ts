@@ -8,6 +8,8 @@ describe('AuthService', () => {
   let service: AuthService;
   let router: Router;
 
+  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MockProvider(Router)],
@@ -23,7 +25,7 @@ describe('AuthService', () => {
 
   it('Al llamar login, debe redireccionar al dashboard', () => {
     const spyOnNavigate = spyOn(router, 'navigate');
-    service.login();
+;
 
     expect(spyOnNavigate).toHaveBeenCalled();
   });

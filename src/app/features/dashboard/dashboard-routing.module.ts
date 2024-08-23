@@ -22,6 +22,10 @@ const routes: Routes = [
       path: 'courses',
      loadChildren: () => import ('./courses/courses.module').then((referencia4) => referencia4.CoursesModule)
     },
+    {
+      path: '**',
+      redirectTo: '/auth',
+    }
 ];
 
 @NgModule({

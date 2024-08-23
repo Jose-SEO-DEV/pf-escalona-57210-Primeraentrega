@@ -14,6 +14,10 @@ const routes: Routes = [
   canActivate: [authGuard],
   loadChildren: () => import('./features/dashboard/dashboard.module').then((referencia2) => referencia2.DashboardModule),
 },
+{
+  path: '**',
+  redirectTo: '/auth',
+}
 
 ];
 

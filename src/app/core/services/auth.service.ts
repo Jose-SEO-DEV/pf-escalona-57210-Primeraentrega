@@ -4,6 +4,9 @@ import { BehaviorSubject, map, Observable, of, Subject } from 'rxjs';
 import { User } from '../../features/dashboard/Users/models';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Store } from '@ngrx/store';
+import { RootState } from '../store';
+import { setAuthUser, unsetAuthUser } from '../store/auth/auth.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +19,7 @@ export class AuthService {
 
   authUser$ = this._authUser$.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private store: Store<RootState>) { }
 
   
 
@@ -36,6 +39,7 @@ export class AuthService {
           } else {
             const authUser = response[0];
             localStorage.setItem('token', authUser.token);
+            this.store.dispatch(setAuthUser({payload: authUser }))
             this._authUser$.next(authUser);
             this.router.navigate(['dashboard', 'home' ])
           }
@@ -43,7 +47,6 @@ export class AuthService {
         },
         error: (error) => {
           alert('error al iniciar sesión')
-
         }
       });
   }
@@ -51,6 +54,7 @@ export class AuthService {
 
 logout () {
   localStorage.removeItem('token');
+  this.store.dispatch(unsetAuthUser())
   this._authUser$.next(null);
   this.router.navigate(['auth', 'login']);
 }
@@ -75,6 +79,7 @@ verifyToken(): Observable<boolean> {
         } else {
           const authUser = response[0];
           localStorage.setItem('token', authUser.token);
+          this.store.dispatch(setAuthUser({payload: authUser}))
           this._authUser$.next(authUser);
           return true;
         }

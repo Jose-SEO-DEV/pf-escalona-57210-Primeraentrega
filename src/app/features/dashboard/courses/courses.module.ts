@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EffectsModule } from '@ngrx/effects';
+import { CoursesEffects } from './store/courses.effects';
+import { StoreModule } from '@ngrx/store';
+import { coursesFeature } from './store/courses.reducer';
 
 
 
@@ -35,6 +39,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    StoreModule.forFeature(coursesFeature),
+    EffectsModule.forFeature([CoursesEffects]),
   ]
 })
 export class CoursesModule { }

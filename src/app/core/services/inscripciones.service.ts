@@ -11,23 +11,6 @@ import { environment } from "../../../environments/environment";
 
 })
 export class InscripcionesService {
-    private DATABASE: inscripcion[] = [
-        {
-            id: 'a12024',
-            nombre: 'jose',
-            curso: 77777,
-        },
-        {
-            id: 'a12025',
-            nombre: 'pedro',
-            curso: 99999,
-        },
-        {
-            id: 'a12026',
-            nombre: 'juan',
-            curso: 88888,
-        },
-    ];
 
     constructor(private httpclient: HttpClient) { }
 
